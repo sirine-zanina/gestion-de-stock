@@ -2,6 +2,5 @@
 ---
 # Diagramme de classe
 
-![alt text](https://github.com/sirine-zanina/gestion-de-stock/blob/main/image.jpg?raw=true)
-
+![Image Alt text](/src/main/resources/static/diagramme_de_classe.png))  
 
