@@ -1,4 +1,4 @@
-# Gestion de stock
+# Gestion de stock API
 ---
 # Diagramme de classe
 
