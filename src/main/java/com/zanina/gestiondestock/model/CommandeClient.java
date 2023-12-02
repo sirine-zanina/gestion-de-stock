@@ -2,6 +2,7 @@ package com.zanina.gestiondestock.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,8 +19,14 @@ public class CommandeClient extends AbstractEntity{
     @Column(name = "code")
     private String code;
 
-    @Column(name = "date_commande")
+    @Column(name = "datecommande")
     private Instant dateCommande;
+
+    @Column(name = "etatcommande")
+    private EtatCommande etatCommande;
+
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
 
     @ManyToOne
     @JoinColumn(name = "idclient")

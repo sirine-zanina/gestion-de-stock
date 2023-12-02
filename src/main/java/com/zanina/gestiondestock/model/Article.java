@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -14,7 +15,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "article")
-public class Article extends AbstractEntity{
+public class Article extends AbstractEntity {
 
     @Column(name = "codearticle")
     private String codeArticle;
@@ -34,8 +35,23 @@ public class Article extends AbstractEntity{
     @Column(name = "photo")
     private String photo;
 
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
+
     @ManyToOne
     @JoinColumn(name = "idcategorie")
-    private Categorie category;
+    private Categorie categorie;
+
+    @OneToMany(mappedBy = "article")
+    private List<LigneVente> ligneVentes;
+
+    @OneToMany(mappedBy = "article")
+    private List<LigneCommandeClient> ligneCommandeClients;
+
+    @OneToMany(mappedBy = "article")
+    private List<LigneCommandeFournisseur> ligneCommandeFournisseurs;
+
+    @OneToMany(mappedBy = "article")
+    private List<MvtStk> mvtStks;
 
 }

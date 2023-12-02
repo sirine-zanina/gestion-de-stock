@@ -1,10 +1,9 @@
 package com.zanina.gestiondestock.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
@@ -14,12 +13,21 @@ import lombok.NoArgsConstructor;
 @Table(name = "ligne_commande_client")
 public class LigneCommandeClient extends AbstractEntity{
 
-private Integer quantite;
+    @Column(name = "quantite")
+    private BigDecimal quantite;
+
+    @Column(name = "prixunitaire")
+    private BigDecimal prixUnitaire;
+
+    @Column(name = "identreprise")
     private Integer idEntreprise;
-    private Integer idArticle;
-    private Integer idCommandeClient;
+
+    @ManyToOne
+    @JoinColumn(name = "idarticle")
+    private Article article;
 
     @ManyToOne
     @JoinColumn(name = "idcommandeclient")
     private CommandeClient commandeClient;
+
 }
